@@ -1,16 +1,72 @@
-# React + Vite
+# AI Review Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first customer feedback application that helps businesses collect genuine customer feedback and turn it into an editable Google review draft using AI.
 
-Currently, two official plugins are available:
+## 🚀 MVP
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The current MVP provides a simple flow for businesses and their customers:
 
-## React Compiler
+1. A business is added manually to the database.
+2. A review link is created for that specific business.
+3. A QR code can be created/shared manually using the review link.
+4. Customers scan the QR code or open the review link.
+5. Customers provide feedback through a short questionnaire.
+6. AI generates a review based only on the customer's feedback.
+7. Customers can review and edit the generated text.
+8. Customers copy the review and continue to the business's Google review page.
+9. The customer manually posts the review on Google.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application does **not** automatically post reviews or interact with Google's review interface.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Business-specific review pages
+- QR/link-based customer access
+- Category-specific feedback questions
+- Customer rating collection
+- Positive feedback collection
+- Improvement/issue collection
+- AI-generated review drafts
+- Editable review text
+- Copy review functionality
+- Direct link to the business's Google review page
+- Review session storage
+- Mobile-first responsive UI
+
+## 🏗️ Current Business Setup
+
+Businesses are currently added manually through the Supabase database.
+
+Each business contains information such as:
+
+- Business name
+- Business category
+- Phone number
+- Google review URL
+
+
+
+Category-specific questionnaire options are stored separately in the database, allowing different types of businesses to have different feedback questions.
+
+## 🔄 Customer Flow
+
+```text
+QR Code / Review Link
+        ↓
+Business Review Page
+        ↓
+Give Rating
+        ↓
+What Did You Like?
+        ↓
+What Could Be Improved?
+        ↓
+AI Generates Review
+        ↓
+Customer Reviews / Edits Text
+        ↓
+Copy Review
+        ↓
+Continue to Google
+        ↓
+Customer Manually Posts Review
